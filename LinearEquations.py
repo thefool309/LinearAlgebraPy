@@ -20,6 +20,10 @@ matrixOptions = ["1- 2 equations 2 vars x 3 numbies per equation",
                  "3- 3 equations 3 vars x 4 numbies per equation",
                   "4- 5 equations 4 vars x 5 numbies per equation"]
 
+def consolePauser():
+    print("Press any key to continue...")
+    input()
+
 while matrixIn > 4 or matrixIn < 1:
     print("----------Please Choose a setup for your system of linear equations----------\n\n")
 
@@ -36,7 +40,8 @@ while matrixIn > 4 or matrixIn < 1:
     elif matrixIn == 4:
         matrix_grid_in = Matrixgrid.five_xfive
     else:
-        print("INVALID INPUT")
+        print("\n*************************************\n************INVALID INPUT************\n*************************************\n")
+        consolePauser()
 
 x1 = x2 = x3 = y1 = y2 = y3 = z1 = z2 = z3 = rightside1 = rightside2 = rightside3 = rightside4 = rightside5 = 0
 a1 = a2 = a3 = a4 = a5 = b1 = b2 = b3 = b4 = b5 = c1 = c2 = c3 = c4 = c5 = d1 = d2 = d3 = d4 = d5 =  0
@@ -106,9 +111,16 @@ while len(menuOptions) > userIn > -1:
         if matrix_grid_in == Matrixgrid.two_xthree:
             ans = sy.solve([x1*x + y1*y + rightside1, x2*x + y2*y + rightside2])
             sy.pprint(ans)
+            consolePauser()
         elif matrix_grid_in == Matrixgrid.three_xthree:
             ans = sy.solve([x1 * x + y1 * y + rightside1, x2 * x + y2 * y + rightside2, x3 * x + y3 * y + rightside3])
             sy.pprint(ans)
+            consolePauser()
         elif matrix_grid_in == Matrixgrid.three_xfour:
             ans = sy.solve([x1 * x + y1 * y + z1 * z + rightside1, x2 * x + y2 * y + z2 * z +  rightside2, x3 * x + y3 * y + z3 * z +  rightside3])
             sy.pprint(ans)
+            consolePauser()
+        elif matrix_grid_in == Matrixgrid.five_xfive:
+            ans = sy.solve([a1*a + b1*b + c1*c + d1*d + rightside1, a2*a + b2*b + c2*c + d2*d + rightside2, a3*a + b3*b + c3*c + d3*d + rightside3, a4*a + b4*b + c4*c + d4*d + rightside4, a5*a + b5*b + c5*c + d5*d + rightside5])
+            sy.pprint(ans)
+            consolePauser()
