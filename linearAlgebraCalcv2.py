@@ -1,5 +1,7 @@
 import VectorFunctionality
 import MatrixFunctionality
+import intake_matrix
+
 userIn = 0
 menuOptions = ["1 - Vector Operations", "2 - Matrix operations", "Else - Exit"]
 while userIn < len(menuOptions):
@@ -10,9 +12,8 @@ while userIn < len(menuOptions):
     if userIn == 1:
         VectorFunctionality.vectorFunctionality()
     elif userIn == 2:
-        result = "NOT DONE"
-        print(result)
-        MatrixFunctionality.matrixFunctionality()
+        matrix = intake_matrix.intake_matrix()
+        MatrixFunctionality.matrixFunctionality(matrix)
     else:
         print("yeet")
         break
