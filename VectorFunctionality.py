@@ -13,20 +13,23 @@ def vectorFunctionality():
     userIn = 0
     while userIn < len(menuoptions):
         # gather two LA vectors
+        e = ReferenceFrame('e')
         first = int(input("please enter first int:"))
         second = int(input("please enter second int:"))
         third = int(input("please enter third int:"))
         vList1 = [first, second, third]  # store into lists just in case
         npVector1 = np.array([first, second, third])
+        vVector1 = first*e.x + second*e.y - third*e.z
         norm1 = np.linalg.norm(npVector1)
-        print(norm1)
+        sy.pprint(norm1)
         fourth = int(input("Please enter the first int of the second vector:"))
         fifth = int(input("Please enter the second int of the second vector:"))
         sixth = int(input("Please enter the third int of the second vector:"))
         vList2 = [fourth, fifth, sixth]  # store into lists just in case
         npVector2 = np.array([fourth, fifth, sixth])
+        vVector2 = fourth*e.x + fifth*e.y - sixth*e.z
         norm2 = np.linalg.norm(npVector2)
-        print(norm2)
+        sy.pprint(norm2)
         for i in menuoptions:  # print menu options
             print(i)
         print('\n')
@@ -46,7 +49,7 @@ def vectorFunctionality():
                       multipleForFirstVector * third - multipleForSecondVector * sixth]
             print("[", result[0], result[1], result[2], "]")
         elif userIn == 3:
-            result = np.dot(npVector1, npVector2) / norm1 * norm2
+            result = np.dot(npVector1, npVector2)
             print(result)
         elif userIn == 4:
             result = math.degrees(np.arccos(np.dot(npVector1, npVector2) / (norm1 * norm2)))
